@@ -26,8 +26,6 @@ namespace shortest_seek_time_first_Algoritm
 
             return leftdiff;
 
-
-            
         }
 
         static int rightCheck(List<List<int>> llist, int currIndex)
@@ -47,10 +45,9 @@ namespace shortest_seek_time_first_Algoritm
             }
 
             return rightdiff;
-
-
-
         }
+        
+        
         static int sstf(List<List<int>> llist , int len , int sPos)
         {
             int currIndex = llist[0].IndexOf(sPos);
@@ -58,13 +55,7 @@ namespace shortest_seek_time_first_Algoritm
 
             while(llist[1].Contains(0))
             {
-                //int leftdiff = llist[0][currIndex] - llist[0][currIndex - 1];
-                //int rightdiff = Math.Abs((llist[0][currIndex] - llist[0][currIndex + 1]));
-                //if (((leftdiff < rightdiff) && (llist[1][currIndex - 1] == 0 && llist[1][currIndex + 1] == 0)))
-                //{
-                //    sTime += leftdiff;
-                //    currIndex = llist[0].IndexOf();
-                //}
+   
                 int left = leftCheck(llist, currIndex);
                 int right = rightCheck(llist, currIndex);
                 
@@ -102,14 +93,8 @@ namespace shortest_seek_time_first_Algoritm
                 }
 
                 Console.WriteLine(string.Join(",", llist[1]));
-
-
-
-
-                
+  
             }
-
-
             return sTime;
         }
 
@@ -133,9 +118,6 @@ namespace shortest_seek_time_first_Algoritm
                 sTemp += ",0";  
             }
             sList.Add(sTemp.Trim(' ').Split(',').ToList().Select(sTemp => int.Parse(sTemp)).ToList());
-
-            //Console.WriteLine(String.Join(",", sList[1]) + " "  + length);
-
             sList[0].Sort();
 
             int seekTime = sstf(sList, length, sPosition);
